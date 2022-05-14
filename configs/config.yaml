@@ -1,0 +1,15 @@
+# It contains all the configs required in the project
+artifacts:
+  ARTIFACTS_DIR: artifacts
+  PREPARED_DIR: prepared
+  PREPARED_DATA: prepared.pkl
+
+source_data_url:
+  CF_URL: "https://files.consumerfinance.gov/ccdb/"
+  ZIP_EXTENSION: "complaints.csv.zip"
+  CSV_IN_ZIP: "complaints.csv"
+
+source_download_dir:
+  data_dir: data
+  data_db: complaints.db
+  data_table: census_complaints

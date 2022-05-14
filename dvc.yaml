@@ -1,0 +1,22 @@
+# add stages here 
+stages:
+  get_ingest_data:
+    cmd: python src/stage_01_get_ingest_data.py --config=configs/config.yaml
+    deps:
+      - src/stage_01_get_ingest_data.py
+      - src/utils/common.py
+      - src/utils/db_mgmt.py
+      - configs/config.yaml
+    outs:
+      - data/complaints.db
+
+  prepare_data:
+    cmd: python src/stage_02_prepare.py --config=configs/config.yaml
+    deps:
+      - src/stage_02_prepare.py
+      - src/utils/common.py
+      - src/utils/db_mgmt.py
+      - configs/config.yaml
+      - data/complaints.db
+    outs:
+      - artifacts/prepared/prepared.pkl

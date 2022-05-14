@@ -1,0 +1,6 @@
+# This contains params to be used by the stages to train or predict
+
+# get_ingest:
+#   table_column_1: "products"
+#   table_column_2: "complaints"
+
