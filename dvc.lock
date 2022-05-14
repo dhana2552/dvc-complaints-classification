@@ -1,0 +1,43 @@
+schema: '2.0'
+stages:
+  get_ingest_data:
+    cmd: python src/stage_01_get_ingest_data.py --config=configs/config.yaml
+    deps:
+    - path: configs/config.yaml
+      md5: fcb8ebef6a13c38c45fb1321e5412d6d
+      size: 382
+    - path: src/stage_01_get_ingest_data.py
+      md5: d1079fba170a7c747947f07644852c77
+      size: 2601
+    - path: src/utils/common.py
+      md5: af0b949470607e0a9ceb1f76bc3d602e
+      size: 1640
+    - path: src/utils/db_mgmt.py
+      md5: 198e655bc0aeb245511e3a356b76dd4b
+      size: 1538
+    outs:
+    - path: data/complaints.db
+      md5: ebbde296f9889e66ebd1100257ea3538
+      size: 1170857984
+  prepare_data:
+    cmd: python src/stage_02_prepare.py --config=configs/config.yaml
+    deps:
+    - path: configs/config.yaml
+      md5: fcb8ebef6a13c38c45fb1321e5412d6d
+      size: 382
+    - path: data/complaints.db
+      md5: ebbde296f9889e66ebd1100257ea3538
+      size: 1170857984
+    - path: src/stage_02_prepare.py
+      md5: f024511ecca8a330ac5e3adc0bb43fb4
+      size: 3435
+    - path: src/utils/common.py
+      md5: af0b949470607e0a9ceb1f76bc3d602e
+      size: 1640
+    - path: src/utils/db_mgmt.py
+      md5: 198e655bc0aeb245511e3a356b76dd4b
+      size: 1538
+    outs:
+    - path: artifacts/prepared/prepared.pkl
+      md5: c17f40c54a4e0fbaf9c7d5380bb00fbc
+      size: 10822474
