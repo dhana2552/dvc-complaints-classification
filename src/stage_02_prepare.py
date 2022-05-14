@@ -1,7 +1,7 @@
 import argparse
 import os
 import logging
-from utils.common import read_yaml, reduce_product, create_directories, save_file
+from utils.common import read_yaml, reduce_product, create_directories
 from utils.db_mgmt import connect_db
 import pandas as pd
 
@@ -63,7 +63,7 @@ def main(config_path):
     logging.info(f"Created a new dataframe with filtered data {df_filtered.shape}")
     
     #Save to dir
-    save_file(df_filtered, prepared_data)    
+    df_filtered.to_pickle(prepared_data)
     
 
 if __name__ == '__main__':
