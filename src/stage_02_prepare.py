@@ -34,7 +34,6 @@ def main(config_path):
     cnx = connect_db(db_path)
     df = pd.read_sql_query(f"SELECT * FROM {table_name}", con=cnx)
     logging.info(f"The shape of data frame is {df.shape}")
-    print(df.head())
     
     #Removing aggregated products
     df.drop(df[df.products == 'Credit reporting, credit repair services, or other personal consumer reports'].index, inplace=True)
