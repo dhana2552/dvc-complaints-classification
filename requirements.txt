@@ -5,6 +5,8 @@ pandas
 numpy
 PyYAML
 joblib
+scikit-learn
+nltk
 
 ### local packages -
 # -e . # << uncomment this to install from setup.py

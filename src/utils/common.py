@@ -5,7 +5,6 @@ import json
 from io import BytesIO, TextIOWrapper
 from zipfile import ZipFile
 import urllib.request as req
-import joblib
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -39,8 +38,3 @@ def reduce_product(df, product):
     df_reduced = df[df.products == product].head(1000)
     logging.info("Picked only top 1000 records from each product for a balance in dataset")
     return df_reduced
-
-def save_file(result, out_path):
-    logging.info(f"Saving file to: {out_path}")
-    joblib.dump(result, out_path)
-    logging.info(f"File saved successfully")
