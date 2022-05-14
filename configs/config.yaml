@@ -3,6 +3,8 @@ artifacts:
   ARTIFACTS_DIR: artifacts
   PREPARED_DIR: prepared
   PREPARED_DATA: prepared.pkl
+  FEATURIZED_DIR: featurized
+  FEATURIZED_DATA: featurized.pkl
 
 source_data_url:
   CF_URL: "https://files.consumerfinance.gov/ccdb/"

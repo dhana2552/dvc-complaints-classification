@@ -20,3 +20,18 @@ stages:
       - data/complaints.db
     outs:
       - artifacts/prepared/prepared.pkl
+
+  featurize_data:
+    cmd: python src/stage_03_featurize.py --config=configs/config.yaml --params=params.yaml
+    deps:
+      - src/stage_03_featurize.py
+      - src/utils/common.py
+      - src/utils/featurize.py
+      - configs/config.yaml
+      - artifacts/prepared/prepared.pkl
+    params:
+      - featurize.max_features
+      - featurize.ngrams
+    outs:
+      - artifacts/featurized/featurized.pkl
+

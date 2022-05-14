@@ -4,3 +4,7 @@
 #   table_column_1: "products"
 #   table_column_2: "complaints"
 
+featurize:
+  max_features: 3000
+  ngrams: 3
+
