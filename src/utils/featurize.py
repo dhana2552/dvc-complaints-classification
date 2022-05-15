@@ -8,5 +8,5 @@ ps = PorterStemmer()
 def clean_text(series):
     series = series.apply(lambda x: re.sub('[^a-zA-Z]|[XX*]', ' ', x).split())
     series = series.apply(lambda x: [ps.stem(i) for i in x])
-    # series = series.apply(lambda x: ' '.join(x))
+    series = series.apply(lambda x: ' '.join(x))
     return series

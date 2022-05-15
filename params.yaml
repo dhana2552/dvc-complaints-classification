@@ -7,4 +7,7 @@
 featurize:
   max_features: 3000
   ngrams: 3
+  split: 0.2
+  seed: 42
+
 
