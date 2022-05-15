@@ -33,5 +33,32 @@ stages:
       - featurize.max_features
       - featurize.ngrams
     outs:
-      - artifacts/featurized/featurized.pkl
+      - artifacts/featurized/train/X_train.npy
+      - artifacts/featurized/train/y_train.npy
+      - artifacts/featurized/test/X_test.npy
+      - artifacts/featurized/test/y_test.npy
+
+  train:
+    cmd: python src/stage_04_train.py --config=configs/config.yaml
+    deps:
+      - src/stage_04_train.py
+      - src/utils/common.py
+      - configs/config.yaml
+      - artifacts/featurized/train/X_train.npy
+      - artifacts/featurized/train/y_train.npy
+    outs:
+      - artifacts/model/model.pkl
+
+  evaluate:
+    cmd: python src/stage_05_evaluate.py --config=configs/config.yaml
+    deps:
+      - src/stage_05_evaluate.py
+      - src/utils/common.py
+      - configs/config.yaml
+      - artifacts/model/model.pkl
+      - artifacts/featurized/test/X_test.npy
+      - artifacts/featurized/test/y_test.npy
+    metrics:
+      - scores.json:
+          cache: false
 
