@@ -114,8 +114,8 @@ stages:
       md5: cddc48f9e0657edf6758b5c6fc03e9c7
       size: 630
     - path: src/stage_05_evaluate.py
-      md5: 6da1d8d6cae29d80c49e92f49e15ca92
-      size: 2034
+      md5: 71a78af37914b1731e3538958849d4a4
+      size: 1888
     - path: src/utils/common.py
       md5: 4ab9a2963b57eb6e79ee805f6809e61c
       size: 1459
